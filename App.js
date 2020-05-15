@@ -24,6 +24,14 @@ import {
 */
 import Analytics from 'appcenter-analytics';
 
+  Analytics.trackEvent('Add to Cart pressed', {
+      productName: "PlayStation 4 console'",
+      productId: '2443ds5',
+      os: 'ios',
+      screen: 'AddToCartScreen',
+    });
+
+
 class App extends React.Component {
   __addCartButtonPressed = () => {
 
