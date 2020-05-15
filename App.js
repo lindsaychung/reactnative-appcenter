@@ -15,11 +15,13 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+/*
 import {
 
   Colors,
 
 } from 'react-native/Libraries/Color';
+*/
 import Analytics from 'appcenter-analytics';
 
 class App extends React.Component {
@@ -49,7 +51,7 @@ class App extends React.Component {
 }
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+  //  backgroundColor: Colors.lighter,
   },
   container: {
     flex: 1,
