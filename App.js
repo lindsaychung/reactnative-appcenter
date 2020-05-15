@@ -6,44 +6,69 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  StatusBar,
+  TouchableHighlight,
+} from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {
 
-type Props = {};
-export default class App extends Component<Props> {
+  Colors,
+
+} from 'react-native/Libraries/NewAppScreen';
+import Analytics from 'appcenter-analytics';
+
+class App extends React.Component {
+  __addCartButtonPressed = () => {
+
+    Analytics.trackEvent('Add to Cart pressed', {
+      productName: "PlayStation 4 console'",
+      productId: '2443ds5',
+      os: 'ios',
+      screen: 'AddToCartScreen',
+    });
+  };
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView style={styles.container}>
+          <TouchableHighlight
+            style={styles.addToCartButtonStyle}
+            onPress={this.__addCartButtonPressed}>
+            <Text style={styles.addToCartButtonTextStyle}>Add to Cart </Text>
+          </TouchableHighlight>
+        </SafeAreaView>
+      </>
     );
   }
 }
-
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: Colors.lighter,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
+  addToCartButtonTextStyle: {
+    color: '#fff',
+    fontWeight: 'bold',
     textAlign: 'center',
-    margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  addToCartButtonStyle: {
+    width: 180,
+    height: 45,
+    justifyContent: 'center',
+    borderRadius: 4,
+    backgroundColor: '#ff0000',
+    alignItems: 'center',
   },
 });
+export default App;
