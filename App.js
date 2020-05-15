@@ -19,7 +19,7 @@ import {
 
   Colors,
 
-} from 'react-native/Libraries/NewAppScreen';
+} from 'react-native/Libraries/Color';
 import Analytics from 'appcenter-analytics';
 
 class App extends React.Component {
